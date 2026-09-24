@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <title>TradeVault — Trading Journal & Performance Platform</title>
+  <meta name="description" content="TradeVault helps traders journal, analyze, manage risk and build consistency.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div id="toastRoot"></div>
+
+<header class="site-header">
+  <a class="brand" href="#" data-view="home"><span class="brand-mark">TV</span><span>TradeVault</span></a>
+  <nav class="desktop-nav">
+    <a href="#products">Products</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+  </nav>
+  <div class="header-actions">
+    <button class="icon-btn" id="themeBtn" title="Toggle theme">☾</button>
+    <button class="btn ghost" id="loginBtn">Log in</button>
+    <button class="btn primary" id="signupBtn">Start free</button>
+    <button class="avatar hidden" id="userBtn">U</button>
+  </div>
+  <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+</header>
+<div class="mobile-nav hidden" id="mobileNav">
+  <a href="#products">Products</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+  <button class="btn primary full" id="mobileSignup">Start free</button>
+</div>
+
+<main id="publicApp">
+<section class="hero section">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="pulse"></span> Built for traders who want to improve</div>
+    <h1>Trade less emotionally.<br><span class="gradient-text">Learn from every trade.</span></h1>
+    <p class="hero-sub">TradeVault is your trading journal, analytics workspace and risk companion — built to turn scattered trade data into a process you can actually improve.</p>
+    <div class="hero-actions"><button class="btn primary xl" id="heroSignup">Create your free account →</button><button class="btn secondary xl" id="heroLogin">See the dashboard</button></div>
+    <div class="trust-row"><span>✓ Journal trades</span><span>✓ Track risk</span><span>✓ Find patterns</span><span>✓ Build consistency</span></div>
+  </div>
+  <div class="hero-product">
+    <div class="window">
+      <div class="window-bar"><span></span><span></span><span></span><b>TradeVault / Overview</b></div>
+      <div class="mini-dashboard">
+        <div class="mini-top"><div><small>Account equity</small><strong>$10,842.60</strong><em>+8.43%</em></div><div class="mini-chip">● LIVE JOURNAL</div></div>
+        <div class="mini-chart"><div class="chart-grid"></div><svg viewBox="0 0 500 170" preserveAspectRatio="none"><polyline points="0,145 55,132 105,140 155,105 205,116 260,88 315,100 370,62 420,73 500,24"/></svg></div>
+        <div class="mini-cards"><div><small>Win rate</small><b>61.5%</b></div><div><small>Profit factor</small><b>1.84</b></div><div><small>Avg R</small><b>+1.21R</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-heading"><div><div class="eyebrow">One workspace</div><h2>Everything around the trade.</h2></div><p>Start simple. Grow into a complete trading operating system.</p></div>
+  <div class="product-grid">
+    <article class="feature-card"><span class="feature-icon">✎</span><h3>Journaling + Analytics</h3><p>Log entries, exits, setup, emotion, screenshots and notes. Turn your history into useful statistics.</p><span class="tag">Core</span></article>
+    <article class="feature-card"><span class="feature-icon">◒</span><h3>Risk & Prop Monitor</h3><p>Track daily loss, drawdown, targets and risk rules across personal and prop-style accounts.</p><span class="tag">Core</span></article>
+    <article class="feature-card"><span class="feature-icon">✦</span><h3>Trader Playbook</h3><p>Build your own rules for FVGs, order blocks, liquidity, sessions and the setups you actually trade.</p><span class="tag">Core</span></article>
+    <article class="feature-card"><span class="feature-icon">⌁</span><h3>Psychology</h3><p>Record emotions and execution quality so you can separate strategy problems from discipline problems.</p><span class="tag">Core</span></article>
+    <article class="feature-card"><span class="feature-icon">↗</span><h3>Backtesting</h3><p>Future-ready workspace for testing ideas and comparing results without mixing them into live performance.</p><span class="tag future">Coming next</span></article>
+    <article class="feature-card"><span class="feature-icon">▶</span><h3>Trade Replay</h3><p>Replay and review historical sessions with a structured learning workflow.</p><span class="tag future">Coming next</span></article>
+  </div>
+</section>
+
+<section class="section dark-band" id="how">
+  <div class="section-heading"><div><div class="eyebrow">A simple process</div><h2>From trade → review → improvement.</h2></div></div>
+  <div class="steps">
+    <div class="step"><b>01</b><h3>Capture</h3><p>Record the trade while the details are fresh: setup, risk, entry, exit and psychology.</p></div>
+    <div class="step"><b>02</b><h3>Analyze</h3><p>See what happens by setup, direction, session, day and execution quality.</p></div>
+    <div class="step"><b>03</b><h3>Improve</h3><p>Turn recurring mistakes and strengths into rules for your personal playbook.</p></div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="section-heading center"><div class="eyebrow">Launch pricing</div><h2>Start free. Premium comes later.</h2><p>We’re designing TradeVault to be accessible first, then add optional paid tools as the product grows.</p></div>
+  <div class="pricing-grid">
+    <article class="price-card featured"><div class="price-badge">LAUNCH</div><h3>Free</h3><div class="price">$0 <small>during launch</small></div><ul><li>Unlimited journal entries</li><li>Core analytics</li><li>Risk calculator</li><li>Personal playbook</li><li>Light + dark mode</li><li>Cloud account</li></ul><button class="btn primary full" id="pricingSignup">Create account</button></article>
+    <article class="price-card"><h3>Premium</h3><div class="price">Coming soon</div><ul><li>Advanced analytics</li><li>Backtesting</li><li>Trade replay</li><li>Advanced prop integrations</li><li>AI-assisted review</li><li>More exports & automation</li></ul><button class="btn secondary full" onclick="toast('Premium is not enabled yet.')">Join the waitlist</button></article>
+  </div>
+  <div class="payment-note"><b>Future payment support:</b> card payments, supported local payment rails, crypto and other providers can be connected later. No payment credentials are stored in TradeVault itself.</div>
+</section>
+
+<section class="section about" id="about">
+  <div><div class="eyebrow">Why TradeVault</div><h2>Built around the trader, not just the chart.</h2><p>Trading gets expensive when the same mistake keeps repeating. TradeVault is designed to make review a habit: document what happened, understand why it happened, and build a process from the evidence.</p><p class="muted">TradeVault is a journaling and educational tool. It does not provide financial advice or guarantee trading results.</p></div>
+  <div class="about-card"><div class="about-stat"><strong>01</strong><span>Capture the context</span></div><div class="about-stat"><strong>02</strong><span>Measure execution</span></div><div class="about-stat"><strong>03</strong><span>Build your playbook</span></div><div class="about-stat"><strong>04</strong><span>Review consistently</span></div></div>
+</section>
+
+<section class="section" id="faq">
+  <div class="section-heading center"><div class="eyebrow">FAQ</div><h2>Questions, answered.</h2></div>
+  <div class="faq-list">
+    <details><summary>Is TradeVault free?</summary><p>Yes. The launch version is intended to be free. Optional premium features may be introduced later.</p></details>
+    <details><summary>Do I need a broker connection?</summary><p>No. You can manually journal trades. Broker and prop-firm integrations are part of the longer-term roadmap.</p></details>
+    <details><summary>Can I use it on my phone?</summary><p>Yes. The interface is designed responsively for phones, tablets and desktop browsers.</p></details>
+    <details><summary>Is my trading data public?</summary><p>No. The planned cloud architecture uses user authentication and row-level security so users access their own records.</p></details>
+    <details><summary>Will you add payments?</summary><p>Yes, when premium features are ready. Payment providers will be integrated through secure checkout flows rather than storing card details in TradeVault.</p></details>
+    <details><summary>Does TradeVault tell me what trade to take?</summary><p>No. It is a journaling, analytics and learning tool, not personalized investment advice.</p></details>
+  </div>
+</section>
+<section class="cta section"><div><div class="eyebrow">Ready when you are</div><h2>Build a trading process you can review.</h2><p>Create an account and start with your next trade.</p></div><button class="btn primary xl" id="bottomSignup">Start TradeVault →</button></section>
+</main>
+
+<main id="appShell" class="hidden">
+  <div class="app-layout">
+    <aside class="app-sidebar">
+      <a class="brand" href="#" data-appview="dashboard"><span class="brand-mark">TV</span><span>TradeVault</span></a>
+      <div class="workspace"><small>WORKSPACE</small><b id="workspaceName">My Trading</b></div>
+      <nav>
+        <button class="side-item active" data-appview="dashboard">⌂ <span>Overview</span></button>
+        <button class="side-item" data-appview="trades">▤ <span>Trades</span></button>
+        <button class="side-item" data-appview="analytics">◔ <span>Analytics</span></button>
+        <button class="side-item" data-appview="risk">◈ <span>Risk monitor</span></button>
+        <button class="side-item" data-appview="psychology">♡ <span>Psychology</span></button>
+        <button class="side-item" data-appview="playbook">✦ <span>Playbook</span></button>
+        <button class="side-item" data-appview="journal">☷ <span>Journal</span></button>
+      </nav>
+      <div class="sidebar-bottom"><button class="side-item" data-appview="settings">⚙ <span>Settings</span></button><button class="side-item danger" id="logoutBtn">↪ <span>Log out</span></button></div>
+    </aside>
+    <section class="app-main">
+      <div class="app-topbar"><button class="mobile-app-menu" id="mobileAppMenu">☰</button><div><small id="appGreeting">Good day</small><h2 id="appTitle">Overview</h2></div><div class="top-actions"><button class="icon-btn" id="appThemeBtn">☾</button><button class="avatar" id="profileAvatar">U</button></div></div>
+      <div id="appContent"></div>
+    </section>
+  </div>
+</main>
+
+<div class="modal hidden" id="authModal"><div class="modal-card auth-card"><button class="modal-close" data-close="authModal">×</button><div class="auth-logo">TV</div><div id="authPanel"></div></div></div>
+<div class="modal hidden" id="tradeModal"><div class="modal-card wide"><button class="modal-close" data-close="tradeModal">×</button><div class="eyebrow">Journal</div><h2>Log a trade</h2><form id="tradeForm" class="form-grid"><label>Account<select id="tradeAccount"></select></label><label>Symbol<input id="tradeSymbol" required placeholder="XAUUSD / NQ"></label><label>Direction<select id="tradeDirection"><option>Long</option><option>Short</option></select></label><label>Result ($)<input id="tradePnl" type="number" step="0.01" required placeholder="150"></label><label>R multiple<input id="tradeR" type="number" step="0.01" placeholder="1.5"></label><label>Setup<select id="tradeSetup"><option>FVG</option><option>Order Block</option><option>Liquidity Sweep</option><option>Opening Range</option><option>Breakout</option><option>Other</option></select></label><label>Session<select id="tradeSession"><option>Asia</option><option>London</option><option>New York</option><option>Other</option></select></label><label>Emotion<select id="tradeEmotion"><option>Calm</option><option>Confident</option><option>FOMO</option><option>Revenge</option><option>Anxious</option><option>Neutral</option></select></label><label class="full-span">Notes<textarea id="tradeNotes" rows="4" placeholder="What happened? What did you execute well?"></textarea></label><div class="full-span form-actions"><button type="button" class="btn secondary" data-close="tradeModal">Cancel</button><button class="btn primary">Save trade</button></div></form></div></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
