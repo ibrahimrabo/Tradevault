@@ -4,6 +4,7 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 function toast(msg,type="info"){const r=$("#toastRoot"),x=document.createElement("div");x.className="toast "+type;x.textContent=msg;r.appendChild(x);setTimeout(()=>x.remove(),3200)}
 const cfg=window.TRADEVAULT_CONFIG||{};
 const savedUrl=cfg.supabaseUrl||localStorage.getItem(SUPABASE_URL_KEY),
+      savedKey=cfg.supabaseAnonKey||localStorage.getItem(SUPABASE_ANON_KEY);
 if(cfg.supabaseUrl&&cfg.supabaseAnonKey){localStorage.setItem(SUPABASE_URL_KEY,cfg.supabaseUrl);localStorage.setItem(SUPABASE_ANON_KEY,cfg.supabaseAnonKey);}
 if(savedUrl&&savedKey) initSupabase(savedUrl,savedKey);
 function initSupabase(url,key){try{sb=window.supabase.createClient(url,key);sb.auth.onAuthStateChange((event,session)=>{setTimeout(()=>handleSession(session),0)});sb.auth.getSession().then(({data})=>handleSession(data.session));}catch(e){toast("Supabase configuration could not be loaded","error")}}
